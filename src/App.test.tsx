@@ -9,7 +9,7 @@ test("App should have correct initial render", () => {
   expect(screen.getByText(/learn/i)).toBeInTheDocument()
 
   // Initial state: count should be 0, incrementValue should be 2
-  expect(screen.getByLabelText("Count")).toHaveTextContent("1")
+  expect(screen.getByLabelText("Count")).toHaveTextContent("0")
   expect(screen.getByLabelText("Set increment amount")).toHaveValue(2)
 })
 
