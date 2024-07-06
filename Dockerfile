@@ -9,7 +9,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce-cli
 
-# Add ssh
+# Add ssh key
 RUN apt-get -y install openssh-client
 RUN ssh-keygen -q -t rsa -N '' -f /id_rsa
 

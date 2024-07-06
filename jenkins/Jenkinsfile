@@ -1,14 +1,29 @@
 pipeline {
     agent any
     stages {
+        stage('Add rules') {
+          steps {
+            sh "chmod +x -R ${env.WORKSPACE}"
+          }
+        }
+        stage('Info') {
+            steps {
+                sh './jenkins/scripts/info.sh'
+            }
+        }
+        stage('Installation') {
+            steps {
+                sh './jenkins/scripts/installation.sh'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh './jenkins/scripts/build.sh'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh './jenkins/scripts/test.sh'
             }
         }
     }
